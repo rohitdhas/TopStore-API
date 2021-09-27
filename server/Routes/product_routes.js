@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAll, getOne, getCategories, getByCategory, postOne, deleteOne } = require('../controller/product_controller');
+const validateRequestBody = require('../helpers/validator');
+const { getAll, getOne, getCategories, getByCategory, postOne, deleteOne, updateOne, patchField } = require('../controller/product_controller');
 
 // Get all products
 router.get('/', getAll)
@@ -15,7 +16,13 @@ router.get('/category/:category', getByCategory)
 router.get('/:id', getOne)
 
 // Post a Product
-router.post('/', postOne)
+router.post('/', validateRequestBody, postOne)
+
+// Update a Product
+router.put('/:id', validateRequestBody, updateOne);
+
+// Update Product Fields 
+router.patch('/:id', patchField);
 
 // Delete a Product
 router.delete('/:id', deleteOne);

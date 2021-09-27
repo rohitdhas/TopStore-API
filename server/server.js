@@ -24,6 +24,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // ________________________ MIDDLEWARES ________________________
 
+app.use(express.json());
+
 app.use(cors({
     origin: "*"
 }))
@@ -31,7 +33,7 @@ app.use(cors({
 // ________________________ ROUTES ________________________
 
 app.get('/', (req, res) => {
-    res.send("Hey Rohit, It works!");
+    res.send("Welcome to TopStore API!");
 })
 
 app.use('/products', productRoutes);

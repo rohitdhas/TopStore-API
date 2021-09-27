@@ -1,9 +1,6 @@
 const Product = require('../database/Schema/productSchema');
 const filterData = require('../helpers/filter');
-
-// Product Categories
-const PRODUCT_CATEGORIES = ['electronics', 'smartphone', 'clothings', 'other', 'groceries', 'accessories'];
-
+const { PRODUCT_CATEGORIES } = require('../staticData');
 
 const getAll = async (req, res) => {
     let filteredData = [];
@@ -52,7 +49,7 @@ const getOne = async (req, res) => {
     let product;
     const id = req.params.id;
     try {
-        product = await Product.findById(id);
+        product = await Product.findOne({ 'api_id': id });
         if (product == null) {
             return res.status(404).json({ message: `Cannot Find Product with id: ${id}!` });
         } else {
@@ -65,14 +62,52 @@ const getOne = async (req, res) => {
 }
 
 const postOne = (req, res) => {
-    res.status(201).json({ data: req.product })
+    res.status(201).json({ message: "Product Created!", data: filterData(req.product) })
+}
+
+const updateOne = async (req, res) => {
+    const id = req.params.id;
+    let product;
+    try {
+        product = await Product.findOne({ "api_id": id });
+        if (product === null) {
+            return res.status(404).json({ message: "Invalid Product Id!" })
+        } else {
+            return res.status(201).json({ message: "Product Updated", data: filterData(req.body) })
+        }
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+}
+
+const patchField = async (req, res) => {
+    let product;
+    const id = req.params.id;
+    const keys = Object.keys(req.body);
+
+    try {
+        product = await Product.findOne({ "api_id": id });
+        if (product === null) {
+            return res.status(404).json({ message: "Invalid Product Id!" })
+        } else {
+            // Patching data to given fields
+            keys.forEach(key => {
+                product[key] = req.body[key];
+            })
+            return res.status(201).json({ message: "Product Updated", data: filterData(product) })
+        }
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
 }
 
 const deleteOne = async (req, res) => {
     const id = req.params.id;
     let product;
     try {
-        product = await Product.findById(id);
+        product = await Product.findOne({ "api_id": id });
 
         if (product === null) {
             return res.status(400).json({ message: `ERR- Provided invalid id: ${id}!` })
@@ -85,4 +120,4 @@ const deleteOne = async (req, res) => {
     }
 }
 
-module.exports = { getAll, getOne, getCategories, getByCategory, postOne, deleteOne };
+module.exports = { getAll, getOne, getCategories, getByCategory, postOne, deleteOne, updateOne, patchField };
