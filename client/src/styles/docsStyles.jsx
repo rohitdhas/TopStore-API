@@ -110,10 +110,4 @@ export const CodeTest = styled.div`
       background-color: #3e50f7;
     }
   }
-
-  pre,
-  code {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
 `;
