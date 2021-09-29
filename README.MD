@@ -17,7 +17,7 @@ fetch("https://topstore-api.herokuapp.com/products/1")
 ### Get all products
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products?limit=5")
+fetch("https://topstore-api.herokuapp.com/products")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
@@ -109,3 +109,48 @@ fetch("https://topstore-api.herokuapp.com/products/1", {
 ```
 
 - NOTE - The product will not be deleted on the database. It will return you the fake deleted product.
+
+### Limit Results
+
+You can use query string to limit results
+
+```js
+fetch("https://topstore-api.herokuapp.com/products?limit=10")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+```
+
+---
+
+## All Available Routes
+
+- GET
+  -/products (get all products)
+  -/products/1 (get specific product based on id)
+  -/products?limit=5 (limit return results )
+  -/products/products/categories (get all categories)
+  -/products/category/jewelery (get all products in specific category)
+
+- POST
+  /products
+
+- PATCH, PUT
+  /products/:id
+
+- DELETE
+  /products/:id
+
+---
+
+### Product Document Fields
+
+```js
+{
+    id:Number,
+    title:String,
+    price:Number,
+    category:String,
+    description:String,
+    image:String
+}
+```
