@@ -155,7 +155,7 @@ fetch("https://topstore-api.herokuapp.com/products?limit=10")
 ```js
 {
     id:Number,
-    title:String,
+    name:String,
     price:Number,
     category:String,
     description:String,
