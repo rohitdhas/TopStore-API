@@ -126,19 +126,26 @@ fetch("https://topstore-api.herokuapp.com/products?limit=10")
 
 - GET
   -/products (get all products)
+
   -/products/1 (get specific product based on id)
+
   -/products?limit=5 (limit return results )
+
   -/products/products/categories (get all categories)
+
   -/products/category/jewelery (get all products in specific category)
 
 - POST
-  /products
+
+  -/products
 
 - PATCH, PUT
-  /products/:id
+
+  -/products/:id
 
 - DELETE
-  /products/:id
+
+  -/products/:id
 
 ---
 
