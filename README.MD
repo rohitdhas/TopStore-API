@@ -132,9 +132,9 @@ fetch("https://topstore-api.herokuapp.com/products?limit=10")
 
   - /products?limit=5 (limit return results )
 
-  - /products/products/categories (get all categories)
+  - /products/categories (get all categories)
 
-  - /products/category/jewelery (get all products in specific category)
+  - /products/category/electronics (get all products in specific category)
 
 - POST
 
