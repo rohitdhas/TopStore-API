@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "homepage": "https://awesome-app.vercel.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

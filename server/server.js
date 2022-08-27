@@ -1,42 +1,46 @@
 // ________________________ IMPORTS ________________________
-require('dotenv').config();
-const mongoose = require('mongoose');
-const cors = require('cors');
-const express = require('express');
+require("dotenv").config();
+const mongoose = require("mongoose");
+const cors = require("cors");
+const express = require("express");
 const app = express();
-const productRoutes = require('./Routes/product_routes');
+const productRoutes = require("./Routes/product_routes");
 
 // ________________________ DATABASE CONNECTION ________________________
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-})
-    .then(() => {
-        app.listen(4000, (err) => {
-            if (err) console.log(err);
-            else console.log('Server is running!');
-        })
-        console.log("Mongoose Connected!✅")
-    })
-    .catch(() => console.log("Its error from DB!"))
-
+  })
+  .then(() => {
+    app.listen(4000, (err) => {
+      if (err) console.log(err);
+      else console.log("Server is running!");
+    });
+    console.log("Mongoose Connected!✅");
+  })
+  .catch(() => console.log("Its error from DB!"));
 
 // ________________________ MIDDLEWARES ________________________
 
 app.use(express.json());
 
-app.use(cors({
-    origin: "*"
-}))
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // ________________________ ROUTES ________________________
 
-app.get('/', (req, res) => {
-    res.send("Welcome to TopStore API!");
-})
+app.use("/products", productRoutes);
 
-app.use('/products', productRoutes);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client", "build")));
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
+  });
+}
 
 // ________________________________________________________
-

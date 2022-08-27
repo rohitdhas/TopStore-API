@@ -1,13 +1,13 @@
-import './styles/App.css';
-import Nav from './Components/nav';
-import Home from './Components/home';
-import Docs from './Components/docs';
-import PageNotFound from './Components/404'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import "./styles/App.css";
+import Nav from "./Components/nav";
+import Home from "./Components/home";
+import Docs from "./Components/docs";
+import PageNotFound from "./Components/404";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <Nav />
       <Switch>
         <Route exact path="/">
