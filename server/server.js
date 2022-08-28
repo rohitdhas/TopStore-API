@@ -1,11 +1,14 @@
 // ________________________ IMPORTS ________________________
-require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const express = require("express");
 const path = require("path");
 const app = express();
 const productRoutes = require("./Routes/product_routes");
+
+if (process.env.ENVIRONMENT !== "production") {
+  require("dotenv").config();
+}
 
 // ________________________ DATABASE CONNECTION ________________________
 
@@ -26,6 +29,7 @@ mongoose
 // ________________________ MIDDLEWARES ________________________
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.use(
   cors({
@@ -37,11 +41,8 @@ app.use(
 
 app.use("/products", productRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client", "build")));
-  app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
-  });
-}
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // ________________________________________________________
