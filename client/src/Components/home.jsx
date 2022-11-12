@@ -18,13 +18,13 @@ export default function Home() {
               prototype
             </p>
             <div className="buttons">
-              <button
+              {/* <button
                 onClick={() =>
                   (window.location = "https://topstore.netlify.app")
                 }
               >
                 <span>Visit TopStore</span>
-              </button>
+              </button> */}
               <button onClick={() => (window.location = "/docs")}>
                 <span>Read Docs</span>
                 <i className="far fa-file"></i>
@@ -48,7 +48,7 @@ export default function Home() {
             <h2>Example Code</h2>
             <pre>
               <code>
-                {`fetch("http://localhost:8080/products/1")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
+                {`fetch("${process.env.REACT_APP_SERVER_URL}/products/1")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
               </code>
             </pre>
             <button
@@ -126,10 +126,7 @@ export default function Home() {
       <Footer>
         <span>
           Made with <i className="fas fa-heart"></i> by{" "}
-          <a
-            href="https://www.linkedin.com/in/rohit-dhas-26b68215a/"
-            target="_blank"
-          >
+          <a href="https://www.linkedin.com/in/rohitdhas" target="_blank">
             Rohit Dhas
           </a>
         </span>

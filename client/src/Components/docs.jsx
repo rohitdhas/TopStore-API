@@ -37,7 +37,7 @@ export default function Docs() {
             <div className="test_name">Get One Product</div>
             <pre>
               <code>
-                {`fetch("http://localhost:8080/products/1")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
+                {`fetch("${process.env.REACT_APP_SERVER_URL}/products/1")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
               </code>
             </pre>
             <button
@@ -64,7 +64,7 @@ export default function Docs() {
             <div className="test_name">Get All Product</div>
             <pre>
               <code>
-                {`fetch("http://localhost:8080/products?limit=5")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
+                {`fetch("${process.env.REACT_APP_SERVER_URL}/products?limit=5")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
               </code>
             </pre>
             <div className="note">
@@ -95,7 +95,7 @@ export default function Docs() {
             <div className="test_name">Get Categories</div>
             <pre>
               <code>
-                {`fetch("http://localhost:8080/products/categories")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
+                {`fetch("${process.env.REACT_APP_SERVER_URL}/products/categories")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
               </code>
             </pre>
             <button
@@ -127,7 +127,7 @@ export default function Docs() {
             <div className="test_name">Get Products by Category</div>
             <pre>
               <code>
-                {`fetch("http://localhost:8080/products/category/electronics")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
+                {`fetch("${process.env.REACT_APP_SERVER_URL}/products/category/electronics")\n\t.then((res) => res.json())\n\t.then((data) => console.log(data))`}
               </code>
             </pre>
             <button
@@ -162,7 +162,7 @@ export default function Docs() {
             <pre>
               <code>
                 {`
-                fetch("http://localhost:8080/products", {
+                fetch("${process.env.REACT_APP_SERVER_URL}/products", {
                   method: "POST",
                   headers: {
                       "Content-Type": "application/json"
@@ -206,7 +206,7 @@ export default function Docs() {
             <pre>
               <code>
                 {`
-              fetch("http://localhost:8080/products/2", {
+              fetch("${process.env.REACT_APP_SERVER_URL}/products/2", {
                   method: "PUT",
                   headers: {
                       "Content-Type": "application/json"
@@ -244,7 +244,7 @@ export default function Docs() {
             <pre>
               <code>
                 {`
-              fetch("http://localhost:8080/products/2", {
+              fetch("${process.env.REACT_APP_SERVER_URL}/products/2", {
                   method: "PATCH",
                   headers: {
                       "Content-Type": "application/json"
@@ -284,7 +284,7 @@ export default function Docs() {
             <pre>
               <code>
                 {`
-              fetch('http://localhost:8080/products/1',{
+              fetch('${process.env.REACT_APP_SERVER_URL}/products/1',{
                 method:"DELETE"
             })
                 .then(res=>res.json())
@@ -327,10 +327,7 @@ export default function Docs() {
       <Footer>
         <span>
           Made with <i className="fas fa-heart"></i> by{" "}
-          <a
-            href="https://www.linkedin.com/in/rohit-dhas-26b68215a/"
-            target="_blank"
-          >
+          <a href="https://www.linkedin.com/in/rohitdhas/" target="_blank">
             Rohit Dhas
           </a>
         </span>
