@@ -9,7 +9,7 @@ You can fetch data with any kind of methods you know (fetch API, Axios, jquery a
 ### Get One product
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products/1")
+fetch("https://topstore.rohitdhas.dev/api/products/1")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
@@ -17,7 +17,7 @@ fetch("https://topstore-api.herokuapp.com/products/1")
 ### Get all products
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products")
+fetch("https://topstore.rohitdhas.dev/api/products")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
@@ -25,7 +25,7 @@ fetch("https://topstore-api.herokuapp.com/products")
 ### Get Categories
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products/categories")
+fetch("https://topstore.rohitdhas.dev/api/products/categories")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
@@ -33,7 +33,7 @@ fetch("https://topstore-api.herokuapp.com/products/categories")
 ### Get Products by Category
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products/category/electronics")
+fetch("https://topstore.rohitdhas.dev/api/products/category/electronics")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
@@ -41,7 +41,7 @@ fetch("https://topstore-api.herokuapp.com/products/category/electronics")
 ### Add a new Product
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products", {
+fetch("https://topstore.rohitdhas.dev/api/products", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -63,7 +63,7 @@ fetch("https://topstore-api.herokuapp.com/products", {
 ### Update an Existing Product
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products/2", {
+fetch("https://topstore.rohitdhas.dev/api/products/2", {
   method: "PUT",
   headers: {
     "Content-Type": "application/json",
@@ -83,7 +83,7 @@ fetch("https://topstore-api.herokuapp.com/products/2", {
 ### Update a specific field
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products/2", {
+fetch("https://topstore.rohitdhas.dev/api/products/2", {
   method: "PATCH",
   headers: {
     "Content-Type": "application/json",
@@ -101,7 +101,7 @@ fetch("https://topstore-api.herokuapp.com/products/2", {
 ### Delete a Product
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products/1", {
+fetch("https://topstore.rohitdhas.dev/api/products/1", {
   method: "DELETE",
 })
   .then((res) => res.json())
@@ -115,7 +115,7 @@ fetch("https://topstore-api.herokuapp.com/products/1", {
 You can use query string to limit results
 
 ```js
-fetch("https://topstore-api.herokuapp.com/products?limit=10")
+fetch("https://topstore.rohitdhas.dev/api/products?limit=10")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
