@@ -80,25 +80,25 @@ export default function Home() {
               </li>
               <li>
                 <span className="method">GET</span>
-                <a href="/products">/products</a>
+                <a href="/api/products">/products</a>
               </li>
               <li>
                 <span className="method">GET</span>
-                <a href="/products/1">/products/1</a>
+                <a href="/api/products/1">/products/1</a>
               </li>
               <li>
                 <span className="method">GET</span>
-                <a href="/products/categories">/products/categories</a>
+                <a href="/api/products/categories">/products/categories</a>
               </li>
               <li>
                 <span className="method">GET</span>
-                <a href="/products/category/accessories">
+                <a href="/api/products/category/accessories">
                   /products/category/accessories
                 </a>
               </li>
               <li>
                 <span className="method">GET</span>
-                <a href="/products?limit=5">/products?limit=5</a>
+                <a href="/api/products?limit=5">/products?limit=5</a>
               </li>
               <li>
                 <span className="method">POST</span>
