@@ -39,10 +39,12 @@ app.use(
 
 // ________________________ ROUTES ________________________
 
-app.use("/products", productRoutes);
+app.use("/api/products", productRoutes);
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // ________________________________________________________
+
+module.exports = app;
